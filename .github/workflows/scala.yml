@@ -30,9 +30,5 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Clean
-      run: sbt clean
-    - name: Turn coverage on
-      run: sbt coverageOn
     - name: Run tests
-      run: sbt test coverageReport
+      run: sbt coverageOn test coverageReport
