@@ -1,5 +1,8 @@
 package chadford
 
+import cats._
+import cats.implicits._
+
 import org.scalatest.funspec.AnyFunSpec
 
 class Chapter1Spec extends AnyFunSpec {
@@ -78,10 +81,8 @@ class Chapter1Spec extends AnyFunSpec {
     }
   }
 
-  describe("Exercise 1.4") {
+  describe("Exercise 1.4.6") {
     describe("Show") {
-      import cats._
-      import cats.implicits._
 
       implicit val showCat: Show[Cat] = Show.show { cat =>
         val name  = cat.name.show
@@ -95,6 +96,39 @@ class Chapter1Spec extends AnyFunSpec {
         val azrael = Cat("Azrael", 10, "orange")
 
         assert(azrael.show == "Azrael is a 10 year old orange cat")
+      }
+    }
+  }
+
+  describe("Exercise 1.5.5") {
+    val convertToEqualizer = () // scalafix:ok ; shadow ScalaTest
+
+    describe("Eq") {
+      implicit val eqCat: Eq[Cat] = Eq.instance[Cat] { (cat1, cat2) =>
+        cat1.name === cat2.name && cat1.age === cat2.age && cat1.color === cat2.color
+      }
+
+      val cat1 = Cat("Garfield", 38, "orange and black")
+      val cat2 = Cat("Healthcliff", 30, "orange and black")
+      val cat3 = Cat("Garfield", 38, "orange and black")
+
+      describe("Cat") {
+        it("should be equivalent") {
+          assert(cat1 === cat3)
+        }
+
+        it("should not be equivalent") {
+          assert(cat1 =!= cat2)
+        }
+      }
+
+      describe("Option[Cat]") {
+        it("should not be equivalent") {
+          assert(Option(cat1) === Option(cat3))
+        }
+        it("should be equivalent") {
+          assert(Option(cat1) =!= Option(cat2))
+        }
       }
     }
   }
