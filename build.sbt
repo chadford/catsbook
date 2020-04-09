@@ -25,8 +25,7 @@ lazy val root = (project in file("."))
       "org.typelevel"  %% "cats-core"      % CatsVersion,
       "org.typelevel"  %% "cats-effect"    % CatsEffectVersion
     ),
-    addCompilerPlugin("org.typelevel" %% "kind-projector"     % "0.10.3"),
-    addCompilerPlugin("com.olegpy"    %% "better-monadic-for" % "0.3.1"),
+    addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1"),
     addCompilerPlugin(scalafixSemanticdb),
     format := {
       Command.process("scalafmt", state.value)

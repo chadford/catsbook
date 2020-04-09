@@ -104,6 +104,48 @@ class Chapter2Spec extends AnyFunSpec {
           testAssociativeLaws(setValues)
         }
       }
+
+      describe("IntSetSymmetricDifferenceMonoid") {
+        implicit val setIntMonoid = SetMonoid.setSymmetricDifference[Int]
+
+        val set1 = Set(1, 2, 3)
+        val set2 = Set(4, 5, 6)
+        val set3 = Set(3, 4)
+
+        val setValues = List(set1, set2, set3)
+
+        it("should have an identity") {
+          testIdentityLaws(setValues)
+        }
+
+        it("should have a combine that is associative") {
+          testAssociativeLaws(setValues)
+        }
+      }
+    }
+  }
+
+  describe("Exercise 2.5.4") {
+    import cats.implicits._
+
+    describe("SuperAdder") {
+      it("should add a list of Int") {
+        val ints = List(1, 2, 4, 6)
+
+        assert(SuperAdder.add(ints) == 13)
+      }
+
+      it("should a list of Option[Int]") {
+        val optionInts = List(Option(1), Option(2), Option(4), Option.empty, Option(6))
+
+        assert(SuperAdder.add(optionInts) == Option(13))
+      }
+
+      it("should add a list of Double") {
+        val doubles = List[Double](1, 2, 4, 6)
+
+        assert(SuperAdder.add(doubles) == 13.0)
+      }
     }
   }
 }

@@ -45,9 +45,15 @@ object SetMonoid {
     def combine(x: Set[A], y: Set[A]): Set[A] = x ++ y
   }
 
-  def setIntersectionMonoid[A]: Monoid[Set[A]] = new Monoid[Set[A]] {
+  def setSymmetricDifference[A]: Monoid[Set[A]] = new Monoid[Set[A]] {
     def empty: Set[A] = Set.empty[A]
 
-    def combine(x: Set[A], y: Set[A]): Set[A] = x.intersect(y)
+    def combine(x: Set[A], y: Set[A]): Set[A] = (x ++ y).diff(x.intersect(y))
   }
+}
+
+object SuperAdder {
+  import cats.implicits._
+
+  def add[A: cats.Monoid](items: List[A]): A = items.foldLeft(cats.Monoid[A].empty)(_ |+| _)
 }
