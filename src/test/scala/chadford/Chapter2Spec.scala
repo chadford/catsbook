@@ -141,10 +141,23 @@ class Chapter2Spec extends AnyFunSpec {
         assert(SuperAdder.add(optionInts) == Option(13))
       }
 
-      it("should add a list of Double") {
-        val doubles = List[Double](1, 2, 4, 6)
+      it("should add a list of Order") {
+        final case class Order(totalCost: Double, quantity: Double)
 
-        assert(SuperAdder.add(doubles) == 13.0)
+        implicit val orderMonoid = new cats.Monoid[Order] {
+          def empty: Order = Order(0, 0)
+
+          def combine(a: Order, b: Order) =
+            Order(a.totalCost + b.totalCost, a.quantity + b.quantity)
+        }
+
+        val orders = List[Order](
+          Order(10.0, 1.0),
+          Order(15.3, 1.5),
+          Order(20, 5.0)
+        )
+
+        assert(SuperAdder.add(orders) == Order(45.3, 7.5))
       }
     }
   }
