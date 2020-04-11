@@ -1,6 +1,6 @@
 package chadford
 
-import cats._
+import cats.implicits._
 
 import org.scalatest.funspec.AnyFunSpec
 
@@ -10,25 +10,18 @@ class Chapter3Spec extends AnyFunSpec {
       import Tree._
 
       it("should map a Branch from Branch[Int] to Branch[String]") {
-        val branch1 = Branch(
-          Branch(Leaf(1), Leaf(2)),
-          Branch(Leaf(3), Branch(Leaf(4), Leaf(5)))
-        )
-
-        val result = Functor[Tree].map(branch1)((a: Int) => a.toString())
+        val branch1 = branch(branch(leaf(1), leaf(2)), branch(leaf(3), branch(leaf(4), leaf(5))))
 
         assert(
-          result == Branch(
-            Branch(Leaf("1"), Leaf("2")),
-            Branch(Leaf("3"), Branch(Leaf("4"), Leaf("5")))
+          branch1.map(_.toString()) == branch(
+            branch(leaf("1"), leaf("2")),
+            branch(leaf("3"), branch(leaf("4"), leaf("5")))
           )
         )
       }
 
       it("should map a Leaf from Leaf[Int] to Leaf[String]") {
-        val result = Functor[Tree].map(Leaf(10))((a: Int) => a.toString())
-
-        assert(result == Leaf("10"))
+        assert(leaf(10).map(_.toString()) == Leaf("10"))
       }
     }
   }
