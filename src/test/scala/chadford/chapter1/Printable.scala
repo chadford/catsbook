@@ -1,4 +1,4 @@
-package chadford
+package chadford.chapter1
 
 import cats._
 import cats.implicits._

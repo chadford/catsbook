@@ -1,9 +1,8 @@
-package chadford
+package chadford.chapter2
 
 import org.scalatest.funspec.AnyFunSpec
 
 class Chapter2Spec extends AnyFunSpec {
-  import chadford.Monoid
 
   def identityLaw[A](x: A)(implicit m: Monoid[A]): Boolean = {
     (m.combine(x, m.empty) == x) && (m.combine(m.empty, x) == x)

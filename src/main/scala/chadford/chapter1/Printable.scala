@@ -1,4 +1,4 @@
-package chadford
+package chadford.chapter1
 
 trait Printable[A] {
   def format(a: A): String

@@ -1,4 +1,4 @@
-package chadford
+package chadford.chapter3
 
 import cats._
 
