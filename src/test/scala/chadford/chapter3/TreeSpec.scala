@@ -4,7 +4,7 @@ import cats.implicits._
 
 import org.scalatest.funspec.AnyFunSpec
 
-class Chapter3Spec extends AnyFunSpec {
+class TreeSpec extends AnyFunSpec {
   describe("Exercise 3.5.4") {
     describe("Tree Functor") {
       import Tree._

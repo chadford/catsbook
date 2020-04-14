@@ -2,7 +2,7 @@ package chadford.chapter2
 
 import org.scalatest.funspec.AnyFunSpec
 
-class Chapter2Spec extends AnyFunSpec {
+class MonoidSpec extends AnyFunSpec {
 
   def identityLaw[A](x: A)(implicit m: Monoid[A]): Boolean = {
     (m.combine(x, m.empty) == x) && (m.combine(m.empty, x) == x)
@@ -127,36 +127,29 @@ class Chapter2Spec extends AnyFunSpec {
   describe("Exercise 2.5.4") {
     import cats.implicits._
 
+    import SuperAdder._
+
     describe("SuperAdder") {
       it("should add a list of Int") {
         val ints = List(1, 2, 4, 6)
 
-        assert(SuperAdder.add(ints) == 13)
+        assert(add(ints) == 13)
       }
 
       it("should a list of Option[Int]") {
         val optionInts = List(Option(1), Option(2), Option(4), Option.empty, Option(6))
 
-        assert(SuperAdder.add(optionInts) == Option(13))
+        assert(add(optionInts) == Option(13))
       }
 
       it("should add a list of Order") {
-        final case class Order(totalCost: Double, quantity: Double)
-
-        implicit val orderMonoid = new cats.Monoid[Order] {
-          def empty: Order = Order(0, 0)
-
-          def combine(a: Order, b: Order) =
-            Order(a.totalCost + b.totalCost, a.quantity + b.quantity)
-        }
-
         val orders = List[Order](
           Order(10.0, 1.0),
           Order(15.3, 1.5),
           Order(20, 5.0)
         )
 
-        assert(SuperAdder.add(orders) == Order(45.3, 7.5))
+        assert(add(orders) == Order(45.3, 7.5))
       }
     }
   }

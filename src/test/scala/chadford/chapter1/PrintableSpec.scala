@@ -5,7 +5,7 @@ import cats.implicits._
 
 import org.scalatest.funspec.AnyFunSpec
 
-class Chapter1Spec extends AnyFunSpec {
+class PrintableSpec extends AnyFunSpec {
 
   describe("Exercise 1.3") {
     import PrintableInstances._
