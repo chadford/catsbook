@@ -2,7 +2,7 @@ coverageMinimum := 100
 coverageFailOnMinimum := true
 
 scalafixDependencies in ThisBuild +=
-  "com.nequissimus" %% "sort-imports" % "0.3.2"
+  "com.github.liancheng" %% "organize-imports" % "0.2.1"
 
 val format = taskKey[Unit]("Format files using scalafmt and scalafix")
 
@@ -28,12 +28,10 @@ lazy val root = (project in file("."))
     addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1"),
     addCompilerPlugin(scalafixSemanticdb),
     format := {
-      Command.process("scalafmt", state.value)
+      Command.process("scalafmtAll", state.value)
       Command.process("scalafmtSbt", state.value)
       Command.process("scalafix", state.value)
-      Command.process("scalafix RemoveUnused", state.value)
       Command.process("test:scalafix", state.value)
-      Command.process("test:scalafix RemoveUnused", state.value)
     }
   )
 
