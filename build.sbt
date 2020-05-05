@@ -20,10 +20,10 @@ lazy val root = (project in file("."))
     scalaVersion := "2.13.1",
     libraryDependencies ++= Seq(
       "ch.qos.logback" % "logback-classic" % LogbackVersion,
-      "org.scalamock"  %% "scalamock"      % ScalaMockVersion % Test,
-      "org.scalatest"  %% "scalatest"      % ScalaTestVersion % Test,
-      "org.typelevel"  %% "cats-core"      % CatsVersion,
-      "org.typelevel"  %% "cats-effect"    % CatsEffectVersion
+      "org.scalamock" %% "scalamock"       % ScalaMockVersion % Test,
+      "org.scalatest" %% "scalatest"       % ScalaTestVersion % Test,
+      "org.typelevel" %% "cats-core"       % CatsVersion,
+      "org.typelevel" %% "cats-effect"     % CatsEffectVersion
     ),
     addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1"),
     addCompilerPlugin(scalafixSemanticdb),

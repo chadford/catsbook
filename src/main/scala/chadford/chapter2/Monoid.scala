@@ -39,17 +39,19 @@ object BooleanMonoid {
 }
 
 object SetMonoid {
-  def setUnionMonoid[A]: Monoid[Set[A]] = new Monoid[Set[A]] {
-    override def empty: Set[A] = Set.empty[A]
+  def setUnionMonoid[A]: Monoid[Set[A]] =
+    new Monoid[Set[A]] {
+      override def empty: Set[A] = Set.empty[A]
 
-    override def combine(x: Set[A], y: Set[A]): Set[A] = x ++ y
-  }
+      override def combine(x: Set[A], y: Set[A]): Set[A] = x ++ y
+    }
 
-  def setSymmetricDifference[A]: Monoid[Set[A]] = new Monoid[Set[A]] {
-    override def empty: Set[A] = Set.empty[A]
+  def setSymmetricDifference[A]: Monoid[Set[A]] =
+    new Monoid[Set[A]] {
+      override def empty: Set[A] = Set.empty[A]
 
-    override def combine(x: Set[A], y: Set[A]): Set[A] = (x ++ y).diff(x.intersect(y))
-  }
+      override def combine(x: Set[A], y: Set[A]): Set[A] = (x ++ y).diff(x.intersect(y))
+    }
 }
 
 object SuperAdder {

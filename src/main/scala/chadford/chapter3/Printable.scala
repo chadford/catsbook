@@ -3,9 +3,10 @@ package chadford.chapter3
 trait Printable[A] {
   self =>
   def format(a: A): String
-  def contramap[B](func: B => A): Printable[B] = new Printable[B] {
-    def format(value: B): String = self.format(func(value))
-  }
+  def contramap[B](func: B => A): Printable[B] =
+    new Printable[B] {
+      def format(value: B): String = self.format(func(value))
+    }
 }
 
 final case class Box[A](value: A)
