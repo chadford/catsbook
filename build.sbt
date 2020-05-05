@@ -35,6 +35,10 @@ lazy val root = (project in file("."))
     }
   )
 
+  addCommandAlias("build", ";clean ;assembly")
+  addCommandAlias("cover", ";clean ;coverageOn ;test ;coverageReport ;coverageOff")
+  addCommandAlias("format", ";scalafmtAll ;scalafmtSbt ;scalafix ;test:scalafix")
+
 scalacOptions ++= Seq(
   "-deprecation",
   "-encoding",
