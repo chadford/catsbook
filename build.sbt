@@ -17,7 +17,7 @@ lazy val root = (project in file("."))
     organization := "chadford",
     name := "chadford",
     version := "0.0.1-SNAPSHOT",
-    scalaVersion := "2.13.1",
+    scalaVersion := "2.13.2",
     libraryDependencies ++= Seq(
       "ch.qos.logback" % "logback-classic" % LogbackVersion,
       "org.scalamock" %% "scalamock"       % ScalaMockVersion % Test,
@@ -25,14 +25,8 @@ lazy val root = (project in file("."))
       "org.typelevel" %% "cats-core"       % CatsVersion,
       "org.typelevel" %% "cats-effect"     % CatsEffectVersion
     ),
-    addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1"),
-    addCompilerPlugin(scalafixSemanticdb),
-    format := {
-      Command.process("scalafmtAll", state.value)
-      Command.process("scalafmtSbt", state.value)
-      Command.process("scalafix", state.value)
-      Command.process("test:scalafix", state.value)
-    }
+    addCompilerPlugin("com.olegpy"   %% "better-monadic-for" % "0.3.1"),
+    addCompilerPlugin("org.scalameta" % "semanticdb-scalac"  % "4.3.10" cross CrossVersion.full)
   )
 
 addCommandAlias("build", ";clean ;assembly")
