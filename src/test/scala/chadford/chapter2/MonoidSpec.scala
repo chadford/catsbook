@@ -1,8 +1,8 @@
 package chadford.chapter2
 
-import org.scalatest.funspec.AnyFunSpec
+import munit.FunSuite
 
-class MonoidSpec extends AnyFunSpec {
+class MonoidSpec extends FunSuite {
 
   def identityLaw[A](x: A)(implicit m: Monoid[A]): Boolean = {
     (m.combine(x, m.empty) == x) && (m.combine(m.empty, x) == x)
@@ -30,63 +30,63 @@ class MonoidSpec extends AnyFunSpec {
     }
   }
 
-  describe("Exercise 2.3") {
+  test("Exercise 2.3") {
     val booleanValues = List(true, false)
 
-    describe("BooleanMonoid") {
-      describe("andBooleanMonoid") {
+    test("BooleanMonoid") {
+      test("andBooleanMonoid") {
         import BooleanMonoid.andMonoid
 
-        it("should have an identity") {
+        test("should have an identity") {
           testIdentityLaws(booleanValues)
         }
 
-        it("should have a combine that is associative") {
+        test("should have a combine that is associative") {
           testAssociativeLaws(booleanValues)
         }
       }
 
-      describe("orBooleanMonoid") {
+      test("orBooleanMonoid") {
         import BooleanMonoid.orMonoid
 
-        it("should have an identity") {
+        test("should have an identity") {
           testIdentityLaws(booleanValues)
         }
 
-        it("should have a combine that is associative") {
+        test("should have a combine that is associative") {
           testAssociativeLaws(booleanValues)
         }
       }
     }
 
-    describe("xandBooleanMonoid") {
+    test("xandBooleanMonoid") {
       import BooleanMonoid.xandMonoid
 
-      it("should have an identity") {
+      test("should have an identity") {
         testIdentityLaws(booleanValues)
       }
 
-      it("should have a combine that is associative") {
+      test("should have a combine that is associative") {
         testAssociativeLaws(booleanValues)
       }
     }
 
-    describe("xorBooleanMonoid") {
+    test("xorBooleanMonoid") {
       import BooleanMonoid.xorMonoid
 
-      it("should have an identity") {
+      test("should have an identity") {
         testIdentityLaws(booleanValues)
       }
 
-      it("should have a combine that is associative") {
+      test("should have a combine that is associative") {
         testAssociativeLaws(booleanValues)
       }
     }
   }
 
-  describe("Exercise 2.4") {
-    describe("SetUnionMonoid") {
-      describe("IntSetUnionMonoid") {
+  test("Exercise 2.4") {
+    test("SetUnionMonoid") {
+      test("IntSetUnionMonoid") {
         implicit val setIntMonoid = SetMonoid.setUnionMonoid[Int]
 
         val set1 = Set(1, 2, 3)
@@ -95,16 +95,16 @@ class MonoidSpec extends AnyFunSpec {
 
         val setValues = List(set1, set2, set3)
 
-        it("should have an identity") {
+        test("should have an identity") {
           testIdentityLaws(setValues)
         }
 
-        it("should have a combine that is associative") {
+        test("should have a combine that is associative") {
           testAssociativeLaws(setValues)
         }
       }
 
-      describe("IntSetSymmetricDifferenceMonoid") {
+      test("IntSetSymmetricDifferenceMonoid") {
         implicit val setIntMonoid = SetMonoid.setSymmetricDifference[Int]
 
         val set1 = Set(1, 2, 3)
@@ -113,36 +113,35 @@ class MonoidSpec extends AnyFunSpec {
 
         val setValues = List(set1, set2, set3)
 
-        it("should have an identity") {
+        test("should have an identity") {
           testIdentityLaws(setValues)
         }
 
-        it("should have a combine that is associative") {
+        test("should have a combine that is associative") {
           testAssociativeLaws(setValues)
         }
       }
     }
   }
 
-  describe("Exercise 2.5.4") {
+  test("Exercise 2.5.4") {
     import cats.implicits._
-
     import SuperAdder._
 
-    describe("SuperAdder") {
-      it("should add a list of Int") {
+    test("SuperAdder") {
+      test("should add a list of Int") {
         val ints = List(1, 2, 4, 6)
 
         assert(add(ints) == 13)
       }
 
-      it("should a list of Option[Int]") {
+      test("should a list of Option[Int]") {
         val optionInts = List(Option(1), Option(2), Option(4), Option.empty, Option(6))
 
         assert(add(optionInts) == Option(13))
       }
 
-      it("should add a list of Order") {
+      test("should add a list of Order") {
         val orders = List[Order](
           Order(10.0, 1.0),
           Order(15.3, 1.5),

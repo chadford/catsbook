@@ -1,15 +1,16 @@
 package chadford.chapter4
 
-import org.scalatest.funspec.AnyFunSpec
+import munit.FunSuite
 import scala.concurrent._
 import scala.concurrent.duration._
 
-class FactorialSpec extends AnyFunSpec {
-  describe("factorial") {
+class FactorialSpec extends FunSuite {
+
+  test("factorial") {
     import Factorial.factorial
     import scala.concurrent.ExecutionContext.Implicits.global
 
-    it("should calculate the factorial without interleaving the log statements") {
+    test("should calculate the factorial without interleaving the log statements") {
       val result = Await.result(
         Future.sequence(
           Vector(
