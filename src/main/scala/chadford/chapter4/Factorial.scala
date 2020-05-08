@@ -1,7 +1,7 @@
 package chadford.chapter4
 
-import cats.data.Writer
 import cats._
+import cats.data.Writer
 import cats.implicits._
 
 object Factorial {

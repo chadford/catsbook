@@ -1,8 +1,8 @@
 package chadford.chapter4
 
+import org.scalatest.funspec.AnyFunSpec
 import scala.concurrent._
 import scala.concurrent.duration._
-import org.scalatest.funspec.AnyFunSpec
 
 class FactorialSpec extends AnyFunSpec {
   describe("factorial") {

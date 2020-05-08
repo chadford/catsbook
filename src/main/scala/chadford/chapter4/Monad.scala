@@ -9,15 +9,16 @@ trait Monad[F[_]] {
 }
 
 object MonadInstance {
-  implicit def monadOption[A] = new Monad[Option] {
-    override def pure[A](a: A): Option[A] = Option(a)
+  implicit def monadOption[A] =
+    new Monad[Option] {
+      override def pure[A](a: A): Option[A] = Option(a)
 
-    override def flatMap[A, B](value: Option[A])(func: A => Option[B]): Option[B] =
-      value match {
-        case Some(a) => func(a)
-        case None    => Option.empty[B]
-      }
-  }
+      override def flatMap[A, B](value: Option[A])(func: A => Option[B]): Option[B] =
+        value match {
+          case Some(a) => func(a)
+          case None    => Option.empty[B]
+        }
+    }
 }
 
 object Monad {

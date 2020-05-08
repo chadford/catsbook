@@ -13,6 +13,10 @@ class MonadSpec extends AnyFunSpec {
       it("should have a map defined using flatmap and pure") {
         assert(Monad[Option].map(Option(5))(a => a + 5) == Option(10))
       }
+
+      it("should work on Option.empty") {
+        assert(Monad[Option].map(Option.empty[Int])(a => a + 5) == None)
+      }
     }
   }
 
