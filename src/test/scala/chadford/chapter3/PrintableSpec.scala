@@ -3,6 +3,7 @@ package chadford.chapter3
 import org.scalatest.funspec.AnyFunSpec
 
 class PrintableSpec extends AnyFunSpec {
+
   describe("Exercise 3.6.1.1") {
     import PrintableInstances._
     import PrintableSyntax._

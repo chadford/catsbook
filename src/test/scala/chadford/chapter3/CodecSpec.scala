@@ -3,6 +3,7 @@ package chadford.chapter3
 import org.scalatest.funspec.AnyFunSpec
 
 class CodecSpec extends AnyFunSpec {
+
   describe("Exercise 3.6.2.1") {
     describe("Codec") {
       import Codec._

@@ -5,7 +5,7 @@ import org.scalatest.funspec.AnyFunSpec
 
 class MonadSpec extends AnyFunSpec {
 
-  describe("Exercise 4.1.2") {
+  describe("4.1.2 Exercise: Getting Func-y") {
     import chadford.Monad
     import chadford.MonadInstance._
 
@@ -20,7 +20,7 @@ class MonadSpec extends AnyFunSpec {
     }
   }
 
-  describe("Exercise 4.3.1") {
+  describe("4.3.1 Exercise: Monadic Secret Identities") {
     describe("IdMonad") {
       it("should work with pure") {
         assert(IdMonad.pure(5) == 5)
@@ -36,15 +36,7 @@ class MonadSpec extends AnyFunSpec {
     }
   }
 
-  describe("Exercise 4.4.5") {
+  describe("4.4.5 Exercise: What is Best?") {
     //open ended question on better error handling
-  }
-
-  describe("4.6.5 Exercise: Safer Folding using Eval") {
-    describe("Eval") {
-      describe("foldRight") {
-        it("") {}
-      }
-    }
   }
 }
