@@ -2,7 +2,7 @@ coverageMinimum := 100
 coverageFailOnMinimum := true
 
 scalafixDependencies in ThisBuild +=
-  "com.github.liancheng" %% "organize-imports" % "0.2.1"
+  "com.github.liancheng" %% "organize-imports" % "0.4.0"
 
 val format = taskKey[Unit]("Format files using scalafmt and scalafix")
 
