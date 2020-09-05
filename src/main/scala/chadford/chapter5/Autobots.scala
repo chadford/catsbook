@@ -1,6 +1,5 @@
 package chadford.chapter5
 import cats.data.EitherT
-import cats.implicits._
 
 import scala.concurrent.Await
 import scala.concurrent.Future

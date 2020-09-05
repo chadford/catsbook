@@ -1,7 +1,7 @@
 package chadford.chapter1
 
 import cats._
-import cats.implicits._
+import cats.syntax.all._
 
 import org.scalatest.funspec.AnyFunSpec
 

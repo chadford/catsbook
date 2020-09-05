@@ -125,7 +125,6 @@ class MonoidSpec extends AnyFunSpec {
   }
 
   describe("Exercise 2.5.4") {
-    import cats.implicits._
 
     import SuperAdder._
 

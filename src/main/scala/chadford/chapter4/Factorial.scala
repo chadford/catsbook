@@ -2,7 +2,7 @@ package chadford.chapter4
 
 import cats._
 import cats.data.Writer
-import cats.implicits._
+import cats.syntax.all._
 
 object Factorial {
   def slowly[A](body: => A) =
