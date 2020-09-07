@@ -1,7 +1,7 @@
 package chadford.chapter4
 
 import cats.data.State
-import cats.implicits._
+import cats.syntax.all._
 
 object PostCalculator {
 
