@@ -55,7 +55,7 @@ object SetMonoid {
 }
 
 object SuperAdder {
-  import cats.implicits._
+  import cats.syntax.all._
 
   final case class Order(totalCost: Double, quantity: Double)
 

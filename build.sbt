@@ -6,11 +6,11 @@ scalafixDependencies in ThisBuild +=
 
 val format = taskKey[Unit]("Format files using scalafmt and scalafix")
 
-val CatsEffectVersion = "2.2.0"
-val CatsVersion       = "2.1.1"
+val CatsEffectVersion = "2.1.4"
+val CatsVersion       = "2.2.0"
 val LogbackVersion    = "1.2.3"
 val ScalaMockVersion  = "5.0.0"
-val ScalaTestVersion  = "3.2.1"
+val ScalaTestVersion  = "3.2.2"
 
 lazy val root = (project in file("."))
   .settings(
@@ -26,7 +26,7 @@ lazy val root = (project in file("."))
       "org.typelevel" %% "cats-effect"     % CatsEffectVersion
     ),
     addCompilerPlugin("com.olegpy"   %% "better-monadic-for" % "0.3.1"),
-    addCompilerPlugin("org.scalameta" % "semanticdb-scalac"  % "4.3.20" cross CrossVersion.full)
+    addCompilerPlugin("org.scalameta" % "semanticdb-scalac"  % "4.3.21" cross CrossVersion.full)
   )
 
 addCommandAlias("build", ";clean ;assembly")
