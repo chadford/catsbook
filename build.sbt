@@ -10,7 +10,7 @@ val CatsEffectVersion = "2.2.0"
 val CatsVersion       = "2.2.0"
 val LogbackVersion    = "1.2.3"
 val ScalaMockVersion  = "5.1.0"
-val ScalaTestVersion  = "3.2.2"
+val ScalaTestVersion  = "3.2.3"
 
 lazy val root = (project in file("."))
   .settings(
