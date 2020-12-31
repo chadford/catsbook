@@ -2,14 +2,14 @@ coverageMinimum := 100
 coverageFailOnMinimum := true
 
 scalafixDependencies in ThisBuild +=
-  "com.github.liancheng" %% "organize-imports" % "0.4.0"
+  "com.github.liancheng" %% "organize-imports" % "0.4.4"
 
 val format = taskKey[Unit]("Format files using scalafmt and scalafix")
 
 val CatsEffectVersion = "2.2.0"
 val CatsVersion       = "2.2.0"
 val LogbackVersion    = "1.2.3"
-val ScalaMockVersion  = "5.0.0"
+val ScalaMockVersion  = "5.1.0"
 val ScalaTestVersion  = "3.2.3"
 
 lazy val root = (project in file("."))
@@ -26,7 +26,7 @@ lazy val root = (project in file("."))
       "org.typelevel" %% "cats-effect"     % CatsEffectVersion
     ),
     addCompilerPlugin("com.olegpy"   %% "better-monadic-for" % "0.3.1"),
-    addCompilerPlugin("org.scalameta" % "semanticdb-scalac"  % "4.3.22" cross CrossVersion.full)
+    addCompilerPlugin("org.scalameta" % "semanticdb-scalac"  % "4.3.24" cross CrossVersion.full)
   )
 
 addCommandAlias("build", ";clean ;assembly")
