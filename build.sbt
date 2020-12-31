@@ -26,7 +26,7 @@ lazy val root = (project in file("."))
       "org.typelevel" %% "cats-effect"     % CatsEffectVersion
     ),
     addCompilerPlugin("com.olegpy"   %% "better-monadic-for" % "0.3.1"),
-    addCompilerPlugin("org.scalameta" % "semanticdb-scalac"  % "4.3.22" cross CrossVersion.full)
+    addCompilerPlugin("org.scalameta" % "semanticdb-scalac"  % "4.3.24" cross CrossVersion.full)
   )
 
 addCommandAlias("build", ";clean ;assembly")
