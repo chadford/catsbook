@@ -6,8 +6,8 @@ scalafixDependencies in ThisBuild +=
 
 val format = taskKey[Unit]("Format files using scalafmt and scalafix")
 
-val CatsEffectVersion = "2.3.3"
-val CatsVersion       = "2.3.1"
+val CatsEffectVersion = "2.5.1"
+val CatsVersion       = "2.6.1"
 val LogbackVersion    = "1.2.3"
 val ScalaMockVersion  = "5.1.0"
 val ScalaTestVersion  = "3.2.9"
