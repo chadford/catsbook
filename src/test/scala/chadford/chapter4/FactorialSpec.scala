@@ -3,43 +3,42 @@ package chadford.chapter4
 import org.scalatest.funspec.AnyFunSpec
 import scala.concurrent._
 import scala.concurrent.duration._
+import weaver._
 
-class FactorialSpec extends AnyFunSpec {
+object FactorialSpec extends FunSuite {
 
-  describe("4.7.3 Exercise: Show Your Work") {
-    describe("factorial") {
-      import Factorial.factorial
-      import scala.concurrent.ExecutionContext.Implicits.global
+  import Factorial.factorial
+  import scala.concurrent.ExecutionContext.Implicits.global
 
-      it("should calculate the factorial without interleaving the log statements") {
-        val result = Await.result(
-          Future.sequence(
-            Vector(
-              Future(factorial(3).run),
-              Future(factorial(6).run)
-            )
+  test(
+    "4.7.3 Exercise: Show Your Work: factorial should calculate the factorial without interleaving the log statements"
+  ) {
+    val result = Await.result(
+      Future.sequence(
+        Vector(
+          Future(factorial(3).run),
+          Future(factorial(6).run)
+        )
+      ),
+      30.seconds
+    )
+
+    expect(
+      result == Vector(
+        (Vector("fact 0 1", "fact 1 1", "fact 2 2", "fact 3 6"), 6),
+        (
+          Vector(
+            "fact 0 1",
+            "fact 1 1",
+            "fact 2 2",
+            "fact 3 6",
+            "fact 4 24",
+            "fact 5 120",
+            "fact 6 720"
           ),
-          30.seconds
+          720
         )
-
-        assert(
-          result == Vector(
-            (Vector("fact 0 1", "fact 1 1", "fact 2 2", "fact 3 6"), 6),
-            (
-              Vector(
-                "fact 0 1",
-                "fact 1 1",
-                "fact 2 2",
-                "fact 3 6",
-                "fact 4 24",
-                "fact 5 120",
-                "fact 6 720"
-              ),
-              720
-            )
-          )
-        )
-      }
-    }
+      )
+    )
   }
 }

@@ -1,44 +1,52 @@
 package chadford.chapter4
 
+import cats._
+import cats.implicits._
 import org.scalatest.funspec.AnyFunSpec
+import weaver._
+import scala.util.control.NonFatal
 
-class PostCalculatorSpec extends AnyFunSpec {
+object PostCalculatorSpec extends FunSuite {
 
-  describe("4.9.3 Exercise: Post-Order Calculator") {
-    describe("PostCalculator") {
-      import PostCalculator._
+  import PostCalculator._
 
-      describe("evalOne") {
-        it("should evaluate a single symbol expression") {
-          assert(evalOne("42").runA(Nil).value == 42)
-        }
-      }
+  test(
+    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalOne should evaluate a single symbol expression"
+  ) {
+    expect(evalOne("42").runA(Nil).value == 42)
+  }
 
-      describe("evalAll") {
-        it("should evaluate a list of symbols") {
-          val multistageProgram = evalAll(List("1", "2", "+", "3", "*"))
+  test(
+    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalAll should evaluate a list of symbols"
+  ) {
+    val multistageProgram = evalAll(List("1", "2", "+", "3", "*"))
 
-          assert(multistageProgram.runA(Nil).value == 9)
-        }
-      }
+    expect(multistageProgram.runA(Nil).value == 9)
+  }
 
-      describe("evalInput") {
-        it("should evaluate an expression with + and *") {
-          assert(evalInput("1 2 + 3 *") == 9)
-        }
+  test(
+    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalInput should evaluate an expression with + and *"
+  ) {
+    expect(evalInput("1 2 + 3 *") == 9)
+  }
 
-        it("should evaluate an expression with - and %") {
-          assert(evalInput("19 9 - 3 %") == 3)
-        }
+  test(
+    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalInput should evaluate an expression with - and %"
+  ) {
+    expect(evalInput("19 9 - 3 %") == 3)
+  }
 
-        it("should throw an error if expression is invalid") {
-          val caught = intercept[RuntimeException] {
-            evalInput("19 - 3 ")
-          }
-
-          assert(caught.getMessage() == "Something bad happened!")
-        }
-      }
+  test(
+    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalInput should throw an error if expression is invalid"
+  ) {
+    val result = Either.catchNonFatal {
+      evalInput("19 - 3 ")
     }
+
+    expect(
+      result.swap.map(
+        _.toString()
+      ) == "java.lang.RuntimeException: Something bad happened!".asRight
+    )
   }
 }

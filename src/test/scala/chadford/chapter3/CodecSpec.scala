@@ -1,28 +1,24 @@
 package chadford.chapter3
 
-import org.scalatest.funspec.AnyFunSpec
+import weaver._
 
-class CodecSpec extends AnyFunSpec {
+object CodecSpec extends FunSuite {
 
-  describe("Exercise 3.6.2.1") {
-    describe("Codec") {
-      import Codec._
+  import Codec._
 
-      it("should encode a Double to String") {
-        assert(Codec.encode(1234.5) == "1234.5")
-      }
+  test("Exercise 3.6.2.1 - Codec: encode encodes a Double to String") {
+    expect(Codec.encode(1234.5) == "1234.5")
+  }
 
-      it("should decode a String to Double") {
-        assert(Codec.decode[Double]("1234.5") == 1234.5)
-      }
+  test("Exercise 3.6.2.1 - Codec: decode decodes a String to Double") {
+    expect(Codec.decode[Double]("1234.5") == 1234.5)
+  }
 
-      it("should encode a Box[Double] to String") {
-        assert(Codec.encode(Box(1234.5)) == "1234.5")
-      }
+  test("Exercise 3.6.2.1 - Codec: encode encodes a Box[Double] to String") {
+    expect(Codec.encode(Box(1234.5)) == "1234.5")
+  }
 
-      it("should decode a String to Box[Double]") {
-        assert(Codec.decode[Box[Double]]("1234.5") == Box(1234.5))
-      }
-    }
+  test("Exercise 3.6.2.1 - Codec: decode decodes a String to Box[Double]") {
+    expect(Codec.decode[Box[Double]]("1234.5") == Box(1234.5))
   }
 }

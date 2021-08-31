@@ -1,24 +1,20 @@
 package chadford.chapter3
 
-import org.scalatest.funspec.AnyFunSpec
+import weaver._
 
-class PrintableSpec extends AnyFunSpec {
+object PrintableSpec extends FunSuite {
 
-  describe("Exercise 3.6.1.1") {
-    import PrintableInstances._
-    import PrintableSyntax._
+  import PrintableInstances._
+  import PrintableSyntax._
 
-    describe("Printable") {
-      it("should contramap to create a Printable") {
-        implicit val longPrintable = printableInt.contramap((a: Long) => a.toInt)
+  test("Exercise 3.6.1.1 - Printable: contramap to create a Printable") {
+    implicit val longPrintable = printableInt.contramap((a: Long) => a.toInt)
 
-        assert(100L.format == "100")
-      }
+    expect(100L.format == "100")
+  }
 
-      it("should format a Box") {
-        assert(Box(true).format == "yes")
-        assert(Box(false).format == "no")
-      }
-    }
+  test("Exercise 3.6.1.1 - Printable: Box.format converts a boolean to a string") {
+    expect(Box(true).format == "yes")
+    expect(Box(false).format == "no")
   }
 }
