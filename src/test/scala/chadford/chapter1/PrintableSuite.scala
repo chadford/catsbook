@@ -8,15 +8,15 @@ import weaver._
 object PrintableSuite extends FunSuite {
   import PrintableInstances._
 
-  test("Exercise 1.3: Printable.format formats an Int as a String") {
+  test("Exercise 1.3: Printable.format formats an Int to a String") {
     expect(Printable.format(10) == "10")
   }
 
-  test("Exercise 1.3: Printable.format formats a String as a String") {
+  test("Exercise 1.3: Printable.format formats a String to a String") {
     expect(Printable.format("10") == "10")
   }
 
-  test("Exercise 1.3: Printable.format formats a Cat to String") {
+  test("Exercise 1.3: Printable.format formats a Cat to a String") {
     val azrael = Cat("Azrael", 10, "orange")
 
     expect(Printable.format(azrael) == "Azrael is a 10 year old orange cat")
@@ -27,12 +27,12 @@ object PrintableSuite extends FunSuite {
     expect(true)
   }
 
-  test("Exercise 1.3: Printable.print fprints a String") {
+  test("Exercise 1.3: Printable.print prints a String") {
     Printable.print("10")
     expect(true)
   }
 
-  test("Exercise 1.3: Printable.print prints a formatted Cat") {
+  test("Exercise 1.3: Printable.print prints a Cat") {
     val azrael = Cat("Azrael", 10, "orange")
 
     Printable.print(azrael)
@@ -40,15 +40,15 @@ object PrintableSuite extends FunSuite {
   }
 
   import PrintableSyntax._
-  test("Exercise 1.3: PrintableSyntax: format formats an Int as a String") {
+  test("Exercise 1.3: PrintableSyntax: format formats an Int to a String") {
     assert(10.format == "10")
   }
 
-  test("Exercise 1.3: PrintableSyntax: format formats a String as a String") {
+  test("Exercise 1.3: PrintableSyntax: format formats a String to a String") {
     assert("10".format() == "10")
   }
 
-  test("Exercise 1.3: PrintableSyntax: format formats a Cat to String") {
+  test("Exercise 1.3: PrintableSyntax: format formats a Cat to a String") {
     val azrael = Cat("Azrael", 10, "orange")
 
     assert(azrael.format == "Azrael is a 10 year old orange cat")
@@ -71,7 +71,7 @@ object PrintableSuite extends FunSuite {
     expect(true)
   }
 
-  test("Exercise 1.4.6: Show: show formats a Cat as a String") {
+  test("Exercise 1.4.6: Show: show formats a Cat to a String") {
 
     implicit val showCat: Show[Cat] = Show.show { cat =>
       val name  = cat.name.show

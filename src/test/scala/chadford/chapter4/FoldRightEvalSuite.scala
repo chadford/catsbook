@@ -5,7 +5,7 @@ import weaver._
 object FoldRightEvalSuite extends FunSuite {
 
   test(
-    "4.6.5 Exercise: Safer Folding using Eval - FoldRightEval: foldRight should evaluate foldRight in a stack safe manner"
+    "4.6.5 Exercise: Safer Folding using Eval - FoldRightEval: foldRight evalutes foldRight in a stack safe manner"
   ) {
     val list = 1 to 1000000 toList
 

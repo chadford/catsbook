@@ -18,12 +18,12 @@ object DbReaderSuite extends FunSuite {
   )
 
   val db = Db(users, passwords)
-  test("4.8.3 Exercise: Hacking on Readers - DbReader: checkLogin should check and return true") {
 
+  test("4.8.3 Exercise: Hacking on Readers - DbReader: checkLogin checks and returns true") {
     expect(checkLogin(1, "zerocool").run(db))
   }
 
-  test("4.8.3 Exercise: Hacking on Readers - DbReader: checkLogin should check and return false") {
+  test("4.8.3 Exercise: Hacking on Readers - DbReader: checkLogin checks and returns false") {
     expect(checkLogin(4, "davinci").run(db) == false)
   }
 }

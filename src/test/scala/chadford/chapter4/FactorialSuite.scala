@@ -9,7 +9,7 @@ object FactorialSuite extends FunSuite {
   import scala.concurrent.ExecutionContext.Implicits.global
 
   test(
-    "4.7.3 Exercise: Show Your Work: factorial should calculate the factorial without interleaving the log statements"
+    "4.7.3 Exercise: Show Your Work: factorial calculates the factorial without interleaving the log statements"
   ) {
     val result = Await.result(
       Future.sequence(

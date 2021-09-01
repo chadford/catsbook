@@ -7,13 +7,13 @@ object PostCalculatorSuite extends FunSuite {
   import PostCalculator._
 
   test(
-    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalOne should evaluate a single symbol expression"
+    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalOne evaluates a single symbol expression"
   ) {
     expect(evalOne("42").runA(Nil).value == 42)
   }
 
   test(
-    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalAll should evaluate a list of symbols"
+    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalAll evaluates a list of symbols"
   ) {
     val multistageProgram = evalAll(List("1", "2", "+", "3", "*"))
 
@@ -21,19 +21,19 @@ object PostCalculatorSuite extends FunSuite {
   }
 
   test(
-    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalInput should evaluate an expression with + and *"
+    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalInput evaluates an expression with + and *"
   ) {
     expect(evalInput("1 2 + 3 *") == 9)
   }
 
   test(
-    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalInput should evaluate an expression with - and %"
+    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalInput evaluates an expression with - and %"
   ) {
     expect(evalInput("19 9 - 3 %") == 3)
   }
 
   test(
-    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalInput should throw an error if expression is invalid"
+    "4.9.3 Exercise: Post-Order Calculator - PostCalculator: evalInput throws an error if expression is invalid"
   ) {
     val result = Either.catchNonFatal {
       evalInput("19 - 3 ")
