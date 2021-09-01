@@ -4,7 +4,7 @@ import cats.implicits._
 
 import weaver._
 
-object MonadProductSpec extends FunSuite {
+object MonadProductSuite extends FunSuite {
   import MonadProduct._
 
   test(

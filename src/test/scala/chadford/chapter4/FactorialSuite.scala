@@ -4,7 +4,7 @@ import scala.concurrent._
 import scala.concurrent.duration._
 import weaver._
 
-object FactorialSpec extends FunSuite {
+object FactorialSuite extends FunSuite {
   import Factorial.factorial
   import scala.concurrent.ExecutionContext.Implicits.global
 

@@ -3,7 +3,7 @@ package chadford.chapter4
 import chadford.IdMonad
 import weaver._
 
-object MonadSpec extends FunSuite {
+object MonadSuite extends FunSuite {
   import chadford.Monad
   import chadford.MonadInstance._
 

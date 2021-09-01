@@ -2,7 +2,7 @@ package chadford.chapter4
 
 import weaver._
 
-object DbReaderSpec extends FunSuite {
+object DbReaderSuite extends FunSuite {
   import DbReader.checkLogin
 
   val users = Map(
