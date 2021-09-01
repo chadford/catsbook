@@ -27,7 +27,7 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
 
-    - name: Set up JDK 1.8
+    - name: Set up JDK
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
