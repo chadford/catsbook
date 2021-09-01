@@ -1,9 +1,9 @@
-coverageMinimum := 100
+coverageMinimum       := 100
 coverageFailOnMinimum := true
 
 ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "0.5.0"
-ThisBuild / semanticdbEnabled := true
-ThisBuild / semanticdbVersion := scalafixSemanticdb.revision
+ThisBuild / semanticdbEnabled                              := true
+ThisBuild / semanticdbVersion                              := scalafixSemanticdb.revision
 
 val format = taskKey[Unit]("Format files using scalafmt and scalafix")
 
@@ -16,8 +16,8 @@ val weaver     = "0.7.6"
 lazy val root = (project in file("."))
   .settings(
     organization := "chadford",
-    name := "chadford",
-    version := "0.0.1-SNAPSHOT",
+    name         := "chadford",
+    version      := "0.0.1-SNAPSHOT",
     scalaVersion := "2.13.6",
     libraryDependencies ++= Seq(
       "ch.qos.logback"       % "logback-classic"   % logback,
