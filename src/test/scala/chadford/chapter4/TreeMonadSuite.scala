@@ -4,7 +4,7 @@ import cats.syntax.all._
 
 import weaver._
 
-object TreeMonadSpec extends FunSuite {
+object TreeMonadSuite extends FunSuite {
   import TreeMonad._
 
   test(

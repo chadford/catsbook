@@ -2,7 +2,7 @@ package chadford.chapter5
 
 import weaver._
 
-object AutobotsSpec extends FunSuite {
+object AutobotsSuite extends FunSuite {
   import Autobots._
 
   test(

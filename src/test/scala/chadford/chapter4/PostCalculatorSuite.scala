@@ -3,7 +3,7 @@ import cats.implicits._
 
 import weaver._
 
-object PostCalculatorSpec extends FunSuite {
+object PostCalculatorSuite extends FunSuite {
   import PostCalculator._
 
   test(
