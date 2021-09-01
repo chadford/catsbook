@@ -1,9 +1,9 @@
 package chadford.chapter6
 
-import org.scalatest.funspec.AnyFunSpec
+import weaver._
 
-class ValidatedSpec extends AnyFunSpec {
-  describe("6.4.4 Exercise: Form Validation") {
-    describe("Validated") {}
+object ValidatedSpec extends SimpleIOSuite {
+  test("6.4.4 Exercise: Form Validation - Validated: ") {
+    ignore("add test here")
   }
 }

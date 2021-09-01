@@ -3,7 +3,6 @@ package chadford.chapter3
 import weaver._
 
 object PrintableSpec extends FunSuite {
-
   import PrintableInstances._
   import PrintableSyntax._
 

@@ -1,11 +1,9 @@
 package chadford.chapter4
 
 import chadford.IdMonad
-import org.scalatest.funspec.AnyFunSpec
 import weaver._
 
 object MonadSpec extends FunSuite {
-
   import chadford.Monad
   import chadford.MonadInstance._
 

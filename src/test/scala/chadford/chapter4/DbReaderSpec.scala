@@ -3,7 +3,6 @@ package chadford.chapter4
 import weaver._
 
 object DbReaderSpec extends FunSuite {
-
   import DbReader.checkLogin
 
   val users = Map(

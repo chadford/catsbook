@@ -1,6 +1,5 @@
 package chadford.chapter4
 
-import org.scalatest.funspec.AnyFunSpec
 import weaver._
 
 object FoldRightEvalSpec extends FunSuite {

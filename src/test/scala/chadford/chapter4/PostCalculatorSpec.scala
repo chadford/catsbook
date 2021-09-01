@@ -1,13 +1,9 @@
 package chadford.chapter4
-
-import cats._
 import cats.implicits._
-import org.scalatest.funspec.AnyFunSpec
+
 import weaver._
-import scala.util.control.NonFatal
 
 object PostCalculatorSpec extends FunSuite {
-
   import PostCalculator._
 
   test(

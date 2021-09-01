@@ -3,7 +3,6 @@ package chadford.chapter3
 import weaver._
 
 object CodecSpec extends FunSuite {
-
   import Codec._
 
   test("Exercise 3.6.2.1 - Codec: encode encodes a Double to String") {
