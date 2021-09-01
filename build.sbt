@@ -7,11 +7,11 @@ ThisBuild / semanticdbVersion := scalafixSemanticdb.revision
 
 val format = taskKey[Unit]("Format files using scalafmt and scalafix")
 
-val CatsEffectVersion = "3.1.1"
-val CatsVersion       = "2.6.1"
-val LogbackVersion    = "1.2.3"
-val ScalaMockVersion  = "5.1.0"
-val ScalaTestVersion  = "3.2.9"
+val catsEffect = "3.1.1"
+val cats       = "2.6.1"
+val logback    = "1.2.3"
+val scalaMock  = "5.1.0"
+val weaver     = "0.7.4"
 
 lazy val root = (project in file("."))
   .settings(
@@ -20,13 +20,15 @@ lazy val root = (project in file("."))
     version := "0.0.1-SNAPSHOT",
     scalaVersion := "2.13.6",
     libraryDependencies ++= Seq(
-      "ch.qos.logback" % "logback-classic" % LogbackVersion,
-      "org.scalamock" %% "scalamock"       % ScalaMockVersion % Test,
-      "org.scalatest" %% "scalatest"       % ScalaTestVersion % Test,
-      "org.typelevel" %% "cats-core"       % CatsVersion,
-      "org.typelevel" %% "cats-effect"     % CatsEffectVersion
+      "ch.qos.logback"       % "logback-classic"   % logback,
+      "org.scalamock"       %% "scalamock"         % scalaMock % Test,
+      "org.typelevel"       %% "cats-core"         % cats,
+      "org.typelevel"       %% "cats-effect"       % catsEffect,
+      "com.disneystreaming" %% "weaver-cats"       % weaver    % Test,
+      "com.disneystreaming" %% "weaver-scalacheck" % weaver    % Test
     ),
-    addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1")
+    addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1"),
+    testFrameworks += new TestFramework("weaver.framework.CatsEffect")
   )
 
 addCommandAlias("build", ";clean ;assembly")
