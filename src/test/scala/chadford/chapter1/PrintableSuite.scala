@@ -5,7 +5,7 @@ import cats.syntax.all._
 
 import weaver._
 
-object PrintableSpec extends FunSuite {
+object PrintableSuite extends FunSuite {
   import PrintableInstances._
 
   test("Exercise 1.3: Printable.format formats an Int as a String") {

@@ -4,7 +4,7 @@ import cats.syntax.all._
 
 import weaver._
 
-object TreeSpec extends FunSuite {
+object TreeSuite extends FunSuite {
   import Tree._
 
   test("Exercise 3.5.4 - Tree Functor: should map a Branch from Branch[Int] to Branch[String]") {

@@ -8,7 +8,7 @@ import org.scalacheck.Gen
 import weaver._
 import weaver.scalacheck.Checkers
 
-object MonoidSpec extends SimpleIOSuite with Checkers {
+object MonoidSuite extends SimpleIOSuite with Checkers {
 
   def identityLaw[A](x: A)(implicit m: Monoid[A]): Boolean = {
     (m.combine(x, m.empty) == x) && (m.combine(m.empty, x) == x)
