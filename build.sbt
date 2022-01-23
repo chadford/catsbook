@@ -1,17 +1,17 @@
 coverageMinimum       := 100
 coverageFailOnMinimum := true
 
-ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "0.5.0"
+ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "0.6.0"
 ThisBuild / semanticdbEnabled                              := true
 ThisBuild / semanticdbVersion                              := scalafixSemanticdb.revision
 
 val format = taskKey[Unit]("Format files using scalafmt and scalafix")
 
-val catsEffect = "3.2.5"
+val catsEffect = "3.2.9"
 val cats       = "2.6.1"
-val logback    = "1.2.5"
+val logback    = "1.2.10"
 val scalaMock  = "5.1.0"
-val weaver     = "0.7.6"
+val weaver     = "0.7.9"
 
 lazy val root = (project in file("."))
   .settings(
