@@ -33,7 +33,7 @@ object MonoidSuite extends SimpleIOSuite with Checkers {
     } yield (x, y, z)
 
     forall(product) { case (x, y, z) =>
-      expect(associativeLaw(x, y, z)) //s"Associativity failed for $x, $y, $z")
+      expect(associativeLaw(x, y, z)) // s"Associativity failed for $x, $y, $z")
     }
   }
 
