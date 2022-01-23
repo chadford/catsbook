@@ -1,6 +1,4 @@
 package chadford.chapter4
-
-import cats._
 import cats.data.Writer
 import cats.syntax.all._
 
