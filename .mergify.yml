@@ -5,7 +5,6 @@ pull_request_rules:
         - author=chadford
         - head~=^update/.?$
       - base=master
-      - check-success=build
     actions:
       merge:
-        method: squash
+        method: rebase
