@@ -11,7 +11,7 @@ val catsEffect = "3.3.6"
 val cats       = "2.7.0"
 val logback    = "1.2.10"
 val scalaMock  = "5.2.0"
-val weaver     = "0.7.10"
+val weaver     = "0.7.11"
 
 lazy val root = (project in file("."))
   .settings(
