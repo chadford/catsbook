@@ -7,7 +7,7 @@ ThisBuild / semanticdbVersion                              := scalafixSemanticdb
 
 val format = taskKey[Unit]("Format files using scalafmt and scalafix")
 
-val catsEffect = "3.3.7"
+val catsEffect = "3.3.8"
 val cats       = "2.7.0"
 val logback    = "1.2.11"
 val scalaMock  = "5.2.0"
