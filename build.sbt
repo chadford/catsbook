@@ -9,7 +9,7 @@ val format = taskKey[Unit]("Format files using scalafmt and scalafix")
 
 val catsEffect = "3.5.4"
 val cats       = "2.10.0"
-val logback    = "1.5.5"
+val logback    = "1.5.6"
 val scalaMock  = "6.0.0"
 val weaver     = "0.8.4"
 
