@@ -2,4 +2,4 @@
 addSbtPlugin("ch.epfl.scala" % "sbt-scalafix"  % "0.11.1")
 addSbtPlugin("io.spray"      % "sbt-revolver"  % "0.10.0")
 addSbtPlugin("org.scalameta" % "sbt-scalafmt"  % "2.5.2")
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.9.3")
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "2.1.1")
