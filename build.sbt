@@ -10,7 +10,7 @@ val format = taskKey[Unit]("Format files using scalafmt and scalafix")
 val catsEffect = "3.5.7"
 val cats       = "2.12.0"
 val logback    = "1.5.12"
-val scalaMock  = "6.0.0"
+val scalaMock  = "6.2.0"
 val weaver     = "0.8.4"
 
 lazy val root = (project in file("."))
