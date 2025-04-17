@@ -1,5 +1,7 @@
-coverageMinimum       := 100
-coverageFailOnMinimum := true
+Global / onChangedBuildSource := ReloadOnSourceChanges
+
+coverageMinimumStmtTotal := 100
+coverageFailOnMinimum    := true
 
 ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "0.6.0"
 ThisBuild / semanticdbEnabled                              := true
@@ -7,10 +9,10 @@ ThisBuild / semanticdbVersion                              := scalafixSemanticdb
 
 val format = taskKey[Unit]("Format files using scalafmt and scalafix")
 
-val catsEffect = "3.5.7"
-val cats       = "2.12.0"
-val logback    = "1.5.12"
-val scalaMock  = "6.0.0"
+val catsEffect = "3.6.1"
+val cats       = "2.13.0"
+val logback    = "1.5.18"
+val scalaMock  = "7.3.0"
 val weaver     = "0.8.4"
 
 lazy val root = (project in file("."))
@@ -18,7 +20,7 @@ lazy val root = (project in file("."))
     organization := "chadford",
     name         := "chadford",
     version      := "0.0.1-SNAPSHOT",
-    scalaVersion := "2.13.8",
+    scalaVersion := "2.13.16",
     libraryDependencies ++= Seq(
       "ch.qos.logback"       % "logback-classic"   % logback,
       "org.scalamock"       %% "scalamock"         % scalaMock % Test,
