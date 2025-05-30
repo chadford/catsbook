@@ -13,7 +13,7 @@ val catsEffect = "3.6.1"
 val cats       = "2.13.0"
 val logback    = "1.5.18"
 val scalaMock  = "7.3.2"
-val weaver     = "0.8.4"
+val weaver     = "0.9.0"
 
 lazy val root = (project in file("."))
   .settings(
@@ -22,12 +22,12 @@ lazy val root = (project in file("."))
     version      := "0.0.1-SNAPSHOT",
     scalaVersion := "2.13.16",
     libraryDependencies ++= Seq(
-      "ch.qos.logback"       % "logback-classic"   % logback,
-      "org.scalamock"       %% "scalamock"         % scalaMock % Test,
-      "org.typelevel"       %% "cats-core"         % cats,
-      "org.typelevel"       %% "cats-effect"       % catsEffect,
-      "com.disneystreaming" %% "weaver-cats"       % weaver    % Test,
-      "com.disneystreaming" %% "weaver-scalacheck" % weaver    % Test
+      "ch.qos.logback" % "logback-classic"   % logback,
+      "org.scalamock" %% "scalamock"         % scalaMock % Test,
+      "org.typelevel" %% "cats-core"         % cats,
+      "org.typelevel" %% "cats-effect"       % catsEffect,
+      "org.typelevel" %% "weaver-cats"       % weaver    % Test,
+      "org.typelevel" %% "weaver-scalacheck" % weaver    % Test
     ),
     addCompilerPlugin("com.olegpy" %% "better-monadic-for" % "0.3.1"),
     testFrameworks += new TestFramework("weaver.framework.CatsEffect")
