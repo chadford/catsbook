@@ -41,17 +41,17 @@ object PrintableSuite extends FunSuite {
 
   import PrintableSyntax._
   test("Exercise 1.3: PrintableSyntax: format formats an Int to a String") {
-    assert(10.format == "10")
+    expect(10.format == "10")
   }
 
   test("Exercise 1.3: PrintableSyntax: format formats a String to a String") {
-    assert("10".format() == "10")
+    expect("10".format() == "10")
   }
 
   test("Exercise 1.3: PrintableSyntax: format formats a Cat to a String") {
     val azrael = Cat("Azrael", 10, "orange")
 
-    assert(azrael.format == "Azrael is a 10 year old orange cat")
+    expect(azrael.format == "Azrael is a 10 year old orange cat")
   }
 
   test("Exercise 1.3: PrintableSyntax: print prints an Int") {
@@ -95,18 +95,18 @@ object PrintableSuite extends FunSuite {
   val cat3 = Cat("Garfield", 38, "orange and black")
 
   test("Exercise 1.5.5: Eq - Cat: cats are equivalent") {
-    assert(cat1 === cat3)
+    expect(cat1 === cat3)
   }
 
   test("Exercise 1.5.5: Eq - Cat: cats are not equivalent") {
-    assert(cat1 =!= cat2)
+    expect(cat1 =!= cat2)
   }
 
   test("Exercise 1.5.5: Eq - Option[Cat]: option cat are equivalent") {
-    assert(Option(cat1) === Option(cat3))
+    expect(Option(cat1) === Option(cat3))
   }
 
   test("Exercise 1.5.5: Eq - Option[Cat]: option cat are not equivalent") {
-    assert(Option(cat1) =!= Option(cat2))
+    expect(Option(cat1) =!= Option(cat2))
   }
 }
