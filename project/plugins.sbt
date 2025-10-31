@@ -1,5 +1,5 @@
 //addSbtPlugin("io.github.davidgregory084" % "sbt-tpolecat" % "0.1.3")
 addSbtPlugin("ch.epfl.scala" % "sbt-scalafix"  % "0.14.4")
 addSbtPlugin("io.spray"      % "sbt-revolver"  % "0.10.0")
-addSbtPlugin("org.scalameta" % "sbt-scalafmt"  % "2.5.5")
+addSbtPlugin("org.scalameta" % "sbt-scalafmt"  % "2.5.6")
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "2.4.0")
