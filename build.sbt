@@ -20,7 +20,7 @@ lazy val root = (project in file("."))
     organization := "chadford",
     name         := "chadford",
     version      := "0.0.1-SNAPSHOT",
-    scalaVersion := "2.13.18",
+    scalaVersion := "3.9.0",
     libraryDependencies ++= Seq(
       "ch.qos.logback" % "logback-classic"   % logback,
       "org.scalamock" %% "scalamock"         % scalaMock % Test,
